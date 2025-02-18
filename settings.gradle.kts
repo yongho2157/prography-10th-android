@@ -1,4 +1,7 @@
 pluginManagement {
+
+    includeBuild("build-logic")
+
     repositories {
         google {
             content {
@@ -21,3 +24,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "prography-10th-android"
 include(":app")
+include(":core:network")
+include(":core:model")
+include(":core:data")
+include(":core:common")
+include(":core:domain")
