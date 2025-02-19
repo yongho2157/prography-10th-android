@@ -29,9 +29,13 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        register("androidApplicationCompose") {
-            id = "prography_10th_android.android.application.compose"
-            implementationClass = "AndroidApplicationComposeConventionPlugin"
+        register("androidApplication") {
+            id = "prography_10th_android.android.application"
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
+        register("androidLibraryCompose") {
+            id = "prography_10th_android.android.library.compose"
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
         register("androidLibrary") {
             id = "prography_10th_android.android.library"

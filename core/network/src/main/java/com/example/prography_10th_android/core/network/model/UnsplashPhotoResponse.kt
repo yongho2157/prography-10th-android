@@ -25,7 +25,7 @@ data class UnsplashPhotoResponse(
     @SerialName("liked_by_user") val likedByUser: Boolean,
     @SerialName("current_user_collections") val currentUserCollections: List<String>,
     @SerialName("sponsorship") val sponsorship: PhotoSponsorship?,
-    @SerialName("topic_submissions") val topicSubmissions: Map<String, TopicSubmission>,
+    @SerialName("topic_submissions") val topicSubmissions: Map<String, TopicSubmission?>,
     @SerialName("asset_type") val assetType: String,
     @SerialName("user") val user: User
 )

@@ -1,4 +1,4 @@
-package com.example.prography_10th_android.ui.theme
+package com.example.prography_10th_android.core.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

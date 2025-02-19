@@ -35,7 +35,7 @@ object NetworkModule {
         return Interceptor { chain ->
             with(chain) {
                 val newRequest = request().newBuilder()
-                    .addHeader("Client-ID", "haB4W-N_W2NLBNJ02bnf0-D1MZfH_NyCW1mnWg0VE9Q")
+                    .addHeader("Authorization", "Client-ID haB4W-N_W2NLBNJ02bnf0-D1MZfH_NyCW1mnWg0VE9Q")
                     .build()
                 proceed(newRequest)
             }

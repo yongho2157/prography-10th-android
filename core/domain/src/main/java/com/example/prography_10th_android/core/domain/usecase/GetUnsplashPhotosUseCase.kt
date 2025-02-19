@@ -9,6 +9,6 @@ import javax.inject.Inject
 class GetUnsplashPhotosUseCase @Inject constructor(
     private val unsplashRepository: UnsplashRepository
 ) {
-    suspend operator fun invoke(page: Int, pageSize: Int): Flow<PagingData<UnsplashPhoto>> =
-        unsplashRepository.getPhotoPagingFlow(page = page, pageSize = pageSize)
+    operator fun invoke(): Flow<PagingData<UnsplashPhoto>> =
+        unsplashRepository.getPhotosPagingFlow()
 }

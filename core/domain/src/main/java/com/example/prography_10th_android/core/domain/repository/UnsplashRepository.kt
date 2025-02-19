@@ -5,5 +5,5 @@ import com.example.prography_10th_android.core.model.UnsplashPhoto
 import kotlinx.coroutines.flow.Flow
 
 interface UnsplashRepository {
-    suspend fun getPhotosPagingFlow(): Flow<PagingData<UnsplashPhoto>>
+    fun getPhotosPagingFlow(): Flow<PagingData<UnsplashPhoto>>
 }

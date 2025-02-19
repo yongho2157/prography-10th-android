@@ -13,7 +13,7 @@ import javax.inject.Inject
 class UnsplashRepositoryImpl @Inject constructor(
     private val unsplashRemoteDataSource: UnsplashRemoteDataSourceImpl
 ): UnsplashRepository {
-    override suspend fun getPhotosPagingFlow(): Flow<PagingData<UnsplashPhoto>> {
+    override fun getPhotosPagingFlow(): Flow<PagingData<UnsplashPhoto>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 10,
