@@ -8,16 +8,19 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -25,10 +28,13 @@ fun ImageShimmer(
     isLoading: Boolean,
     contentAfterLoading: @Composable () -> Unit,
     modifier: Modifier = Modifier,
-    size: Dp = 100.dp
 ) {
+
     if (isLoading) {
-        ShimmerImageContent(modifier, size)
+        val randomHeight by remember {
+            mutableStateOf((200..400).random().dp)
+        }
+        ShimmerImageContent(modifier = modifier.height(randomHeight))
     } else {
         contentAfterLoading()
     }
@@ -36,8 +42,7 @@ fun ImageShimmer(
 
 @Composable
 private fun ShimmerImageContent(
-    modifier: Modifier = Modifier,
-    size: Dp,
+    modifier: Modifier = Modifier
 ) {
     val shimmerColors = listOf(
         Color.LightGray.copy(alpha = 0.6f),
@@ -47,16 +52,11 @@ private fun ShimmerImageContent(
 
     val transition = rememberInfiniteTransition(label = "")
     val translateAnimation = transition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1000f,
-        animationSpec = infiniteRepeatable(
+        initialValue = 0f, targetValue = 1000f, animationSpec = infiniteRepeatable(
             animation = tween(
-                durationMillis = 1000,
-                easing = LinearEasing
-            ),
-            repeatMode = RepeatMode.Restart
-        ),
-        label = ""
+                durationMillis = 1000, easing = LinearEasing
+            ), repeatMode = RepeatMode.Restart
+        ), label = ""
     )
 
     val brush = Brush.linearGradient(
@@ -67,8 +67,8 @@ private fun ShimmerImageContent(
 
     Spacer(
         modifier = modifier
-            .size(size)
-            .clip(RoundedCornerShape(8.dp))
+            .clip(RoundedCornerShape(10.dp))
+            .fillMaxWidth()
             .background(brush)
     )
 }
@@ -78,6 +78,7 @@ private fun ShimmerImageContent(
 fun ImageShimmerPreview() {
     ImageShimmer(
         isLoading = true,
-        contentAfterLoading = { /* Preview content */ }
+        contentAfterLoading = { /* Preview content */ },
+        modifier = Modifier.height(300.dp)
     )
 }

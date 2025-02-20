@@ -22,7 +22,6 @@ internal fun RecentUnsplashPhoto(
 ) {
     Box(
         modifier = modifier
-            .padding(10.dp)
             .clip(shape = RoundedCornerShape(10.dp))
     ) {
         AsyncImage(

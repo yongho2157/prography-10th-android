@@ -54,6 +54,7 @@ dependencies {
     implementation(projects.core.designsystem)
     implementation(projects.feature.home)
 
+    implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.navigation)
     implementation(libs.androidx.core.ktx)
     testImplementation(libs.junit)

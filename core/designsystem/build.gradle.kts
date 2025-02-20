@@ -8,3 +8,8 @@ plugins {
 android {
     namespace = "com.example.prography_10th_android.core.designsystem"
 }
+
+dependencies {
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.compose.navigation)
+}
