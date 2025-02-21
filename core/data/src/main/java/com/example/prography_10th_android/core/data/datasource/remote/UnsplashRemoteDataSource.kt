@@ -5,5 +5,6 @@ import com.example.prography_10th_android.core.network.model.UnsplashPhotoRespon
 
 interface UnsplashRemoteDataSource {
     suspend fun getPhotos(page: Int, pageSize: Int): List<UnsplashPhotoResponse>
+    suspend fun getRandomPhoto(): UnsplashPhotoResponse
     suspend fun getPhotoDetail(id: String): UnsplashPhotoDetailResponse
 }

@@ -36,8 +36,8 @@ sealed class NavDestination(
         contentDescriptionRes = R.string.app_logo
     )
 
-    data object Card : NavDestination(
-        route = "card_route",
+    data object Random : NavDestination(
+        route = "random_route",
         iconRes = R.drawable.ic_card,
         contentDescriptionRes = R.string.app_logo
     )
@@ -49,7 +49,7 @@ fun UnSplashNavigationBar(
     modifier: Modifier = Modifier
 ) {
     val items = listOf(
-        NavDestination.Home, NavDestination.Card
+        NavDestination.Home, NavDestination.Random
     )
 
     val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route

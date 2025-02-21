@@ -54,6 +54,7 @@ dependencies {
     implementation(projects.core.designsystem)
     implementation(projects.feature.home)
     implementation(projects.feature.detail)
+    implementation(projects.feature.random)
 
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.navigation)

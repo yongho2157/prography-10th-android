@@ -12,6 +12,7 @@ import com.example.prography_10th_android.core.designsystem.component.UnSplashTo
 import com.example.prography_10th_android.feature.detail.navigation.detailNavGraph
 import com.example.prography_10th_android.feature.detail.navigation.navigateDetail
 import com.example.prography_10th_android.feature.home.navigation.homeNavGraph
+import com.example.prography_10th_android.feature.random.navigation.randomNavGraph
 
 @Composable
 fun UnSplashNavHost() {
@@ -34,10 +35,12 @@ fun UnSplashNavHost() {
             )
             detailNavGraph(
                 onClickClose = {
-                    navController.popBackStack(
-                        route = NavDestination.Home.route,
-                        inclusive = false
-                    )
+                    navController.popBackStack()
+                }
+            )
+            randomNavGraph(
+                onClickInfo = { id ->
+                    navController.navigateDetail(id = id)
                 }
             )
         }

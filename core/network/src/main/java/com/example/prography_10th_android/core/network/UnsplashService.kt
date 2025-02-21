@@ -14,6 +14,9 @@ interface UnsplashService {
         @Query("per_page") pageSize: Int
     ): List<UnsplashPhotoResponse>
 
+    @GET("photos/random")
+    suspend fun getRandomPhoto(): UnsplashPhotoResponse
+
     @GET("photos/{id}")
     suspend fun getPhotoDetail(
         @Path(value = "id") id: String

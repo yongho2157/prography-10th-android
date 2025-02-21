@@ -29,7 +29,6 @@ fun ImageShimmer(
     contentAfterLoading: @Composable () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-
     if (isLoading) {
         val randomHeight by remember {
             mutableStateOf((200..400).random().dp)

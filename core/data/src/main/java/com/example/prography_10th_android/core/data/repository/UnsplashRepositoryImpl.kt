@@ -27,6 +27,15 @@ class UnsplashRepositoryImpl @Inject constructor(
         ), pagingSourceFactory = { UnsplashPagingSource(unsplashRemoteDataSource) }).flow
     }
 
+    override suspend fun getRandomPhoto(): Result<UnsplashPhoto> {
+        try {
+            val result = unsplashRemoteDataSource.getRandomPhoto().toModel()
+            return Result.Success(result)
+        } catch (e: Exception) {
+            return Result.Error(e)
+        }
+    }
+
     override suspend fun getPhotoDetail(id: String): Result<UnsplashPhotoDetail> {
         try {
             val result = unsplashRemoteDataSource.getPhotoDetail(id).toModel()

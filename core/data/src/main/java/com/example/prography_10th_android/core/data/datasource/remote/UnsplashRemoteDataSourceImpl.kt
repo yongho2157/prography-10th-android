@@ -11,6 +11,9 @@ class UnsplashRemoteDataSourceImpl @Inject constructor(
     override suspend fun getPhotos(page: Int, pageSize: Int): List<UnsplashPhotoResponse> =
         unsplashService.getPhotos(page = page, pageSize = pageSize)
 
+    override suspend fun getRandomPhoto(): UnsplashPhotoResponse =
+        unsplashService.getRandomPhoto()
+
     override suspend fun getPhotoDetail(id: String): UnsplashPhotoDetailResponse =
         unsplashService.getPhotoDetail(id = id)
 }

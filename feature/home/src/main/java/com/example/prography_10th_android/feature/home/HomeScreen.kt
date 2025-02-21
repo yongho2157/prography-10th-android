@@ -102,10 +102,12 @@ fun HomeScreen(
         ) {
             items(photos.itemCount) { index ->
                 photos[index]?.let { photo ->
-                    PhotoItemWithShimmer(
-                        photo = photo,
-                        onPhotoClick = onPhotoClick
-                    )
+                    PhotoItemWithShimmer {
+                        RecentUnsplashPhoto(
+                            unsplashPhoto = photo,
+                            onPhotoClick = onPhotoClick
+                        )
+                    }
                 }
             }
         }
@@ -114,20 +116,16 @@ fun HomeScreen(
 
 @Composable
 private fun PhotoItemWithShimmer(
-    photo: UnsplashPhoto,
-    onPhotoClick: (String) -> Unit
+    content: @Composable () -> Unit
 ) {
     var isLoading by remember { mutableStateOf(true) }
 
-    LaunchedEffect(photo) {
+    LaunchedEffect(Unit) {
         delay(1000)
         isLoading = false
     }
 
     ImageShimmer(isLoading = isLoading, contentAfterLoading = {
-        RecentUnsplashPhoto(
-            unsplashPhoto = photo,
-            onPhotoClick = onPhotoClick
-        )
+        content()
     })
 }

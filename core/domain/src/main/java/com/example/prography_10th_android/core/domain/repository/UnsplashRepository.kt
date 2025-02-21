@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface UnsplashRepository {
     fun getPhotosPagingFlow(): Flow<PagingData<UnsplashPhoto>>
+    suspend fun getRandomPhoto(): Result<UnsplashPhoto>
     suspend fun getPhotoDetail(id: String): Result<UnsplashPhotoDetail>
     fun getBookmarks(): Flow<List<UnsplashPhotoDetail>>
     fun getBookmark(id: String): Flow<UnsplashPhotoDetail?>
