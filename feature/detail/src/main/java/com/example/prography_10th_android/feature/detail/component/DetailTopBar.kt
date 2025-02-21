@@ -29,6 +29,7 @@ fun DetailTopBar(
     onClickClose: () -> Unit,
     onClickDownload: () -> Unit,
     onClickBookmark: () -> Unit,
+    isBookmarked: Boolean,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -96,7 +97,8 @@ fun DetailTopBar(
                         id = R.drawable.ic_bookmark
                     ),
                     contentDescription = stringResource(id = R.string.bookmark_button_description),
-                    tint = Color.Gray
+                    tint = if (isBookmarked) Color.White.copy(alpha = 1f)
+                    else Color.White.copy(alpha = 0.3f)
                 )
             }
         }
@@ -110,6 +112,7 @@ private fun DetailTopBarPreview() {
         username = "UserName",
         onClickClose = {},
         onClickDownload = {},
-        onClickBookmark = {}
+        onClickBookmark = {},
+        isBookmarked = false
     )
 }

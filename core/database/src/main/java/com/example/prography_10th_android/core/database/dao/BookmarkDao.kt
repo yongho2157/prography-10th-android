@@ -14,8 +14,8 @@ interface BookmarkDao {
     fun getBookmarks(): Flow<List<BookmarkEntity>>
 
     @Query("SELECT * FROM bookmark WHERE id = :id")
-    fun getBookmark(id: String): Flow<BookmarkEntity>
-    
+    fun getBookmark(id: String): Flow<BookmarkEntity?>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertBookmark(bookmarkEntity: BookmarkEntity)
 

@@ -34,9 +34,7 @@ sealed class NavDestination(
         route = "detail_route/{id}",
         iconRes = R.drawable.ic_card,
         contentDescriptionRes = R.string.app_logo
-    ) {
-        fun createRoute(id: String) = "detail_route/$id"
-    }
+    )
 
     data object Card : NavDestination(
         route = "card_route",
