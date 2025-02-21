@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="close_button_description">닫기</string>
+    <string name="download_button_description">다운로드</string>
+    <string name="bookmark_button_description">북마크</string>
+</resources>

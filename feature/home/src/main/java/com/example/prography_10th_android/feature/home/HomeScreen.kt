@@ -32,23 +32,32 @@ import kotlinx.coroutines.delay
 @Composable
 fun HomeRoute(
     viewModel: HomeViewModel = hiltViewModel(),
+    onPhotoClick: (String) -> Unit
 ) {
     val photos = viewModel.photos.collectAsLazyPagingItems()
     HomeScreen(
-        photos = photos
+        photos = photos,
+        onPhotoClick = onPhotoClick
     )
 }
 
 @Composable
 fun HomeScreen(
     photos: LazyPagingItems<UnsplashPhoto>,
+    onPhotoClick: (String) -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    RecentPhotosGrid(photos = photos)
+    RecentPhotosGrid(
+        photos = photos,
+        onPhotoClick = onPhotoClick,
+        modifier = modifier
+    )
 }
 
 @Composable
 fun RecentPhotosGrid(
     photos: LazyPagingItems<UnsplashPhoto>,
+    onPhotoClick: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -58,7 +67,9 @@ fun RecentPhotosGrid(
             text = stringResource(id = R.string.recent_photos),
             fontWeight = FontWeight.Bold,
             fontSize = 20.sp,
-            modifier = Modifier.fillMaxWidth().padding(13.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(13.dp)
         )
 
         LazyVerticalStaggeredGrid(
@@ -70,7 +81,10 @@ fun RecentPhotosGrid(
         ) {
             items(photos.itemCount) { index ->
                 photos[index]?.let { photo ->
-                    PhotoItemWithShimmer(photo = photo)
+                    PhotoItemWithShimmer(
+                        photo = photo,
+                        onPhotoClick = onPhotoClick
+                    )
                 }
             }
         }
@@ -78,7 +92,10 @@ fun RecentPhotosGrid(
 }
 
 @Composable
-private fun PhotoItemWithShimmer(photo: UnsplashPhoto) {
+private fun PhotoItemWithShimmer(
+    photo: UnsplashPhoto,
+    onPhotoClick: (String) -> Unit
+) {
     var isLoading by remember { mutableStateOf(true) }
 
     LaunchedEffect(photo) {
@@ -87,6 +104,9 @@ private fun PhotoItemWithShimmer(photo: UnsplashPhoto) {
     }
 
     ImageShimmer(isLoading = isLoading, contentAfterLoading = {
-        RecentUnsplashPhoto(unsplashPhoto = photo)
+        RecentUnsplashPhoto(
+            unsplashPhoto = photo,
+            onPhotoClick = onPhotoClick
+        )
     })
 }

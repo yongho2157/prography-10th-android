@@ -11,19 +11,19 @@
       <SelectionState runConfigName="core.designsystem">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ShimmerEffectPreview (1)">
+      <SelectionState runConfigName="DetailTopBarPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ImageShimmerPreview">
+      <SelectionState runConfigName="DetailPhotoPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="UnSplashNavigationBarPreview">
+      <SelectionState runConfigName="DetailScreenPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="A">
+      <SelectionState runConfigName="UnSplashPhotoCardPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="Apreview">
+      <SelectionState runConfigName="RecentUnsplashPhotoPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

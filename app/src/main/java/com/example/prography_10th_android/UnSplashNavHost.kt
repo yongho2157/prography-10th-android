@@ -9,6 +9,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.prography_10th_android.core.designsystem.component.NavDestination
 import com.example.prography_10th_android.core.designsystem.component.UnSplashNavigationBar
 import com.example.prography_10th_android.core.designsystem.component.UnSplashTopBar
+import com.example.prography_10th_android.feature.detail.navigation.detailNavGraph
+import com.example.prography_10th_android.feature.detail.navigation.navigateDetail
 import com.example.prography_10th_android.feature.home.navigation.homeNavGraph
 
 @Composable
@@ -25,7 +27,19 @@ fun UnSplashNavHost() {
             startDestination = NavDestination.Home.route,
             modifier = Modifier.padding(paddingValues)
         ) {
-            homeNavGraph()
+            homeNavGraph(
+                onPhotoClick = { id ->
+                    navController.navigateDetail(id = id)
+                }
+            )
+            detailNavGraph(
+                onClickClose = {
+                    navController.popBackStack(
+                        route = NavDestination.Home.route,
+                        inclusive = false
+                    )
+                }
+            )
         }
     }
 }

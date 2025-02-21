@@ -12,8 +12,10 @@ fun NavController.navigateHome(navOptions: NavOptions) {
     navigate(NavDestination.Home.route, navOptions)
 }
 
-fun NavGraphBuilder.homeNavGraph() {
+fun NavGraphBuilder.homeNavGraph(
+    onPhotoClick: (String) -> Unit
+) {
     composable(NavDestination.Home.route) {
-        HomeRoute()
+        HomeRoute(onPhotoClick = onPhotoClick)
     }
 }

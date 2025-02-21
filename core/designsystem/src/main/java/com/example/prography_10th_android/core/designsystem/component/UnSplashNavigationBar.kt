@@ -8,10 +8,6 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -23,11 +19,30 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.prography_10th_android.core.designsystem.R
 
-sealed class NavDestination(val route: String, @DrawableRes val iconRes: Int, @StringRes val contentDescriptionRes: Int) {
-    data object Home :
-        NavDestination(route = "home_route", iconRes = R.drawable.ic_home, contentDescriptionRes = R.string.app_logo)
+sealed class NavDestination(
+    val route: String,
+    @DrawableRes val iconRes: Int,
+    @StringRes val contentDescriptionRes: Int
+) {
+    data object Home : NavDestination(
+        route = "home_route",
+        iconRes = R.drawable.ic_home,
+        contentDescriptionRes = R.string.app_logo
+    )
 
-    data object Card : NavDestination(route = "card_route", iconRes = R.drawable.ic_card, contentDescriptionRes = R.string.app_logo)
+    data object Detail : NavDestination(
+        route = "detail_route/{id}",
+        iconRes = R.drawable.ic_card,
+        contentDescriptionRes = R.string.app_logo
+    ) {
+        fun createRoute(id: String) = "detail_route/$id"
+    }
+
+    data object Card : NavDestination(
+        route = "card_route",
+        iconRes = R.drawable.ic_card,
+        contentDescriptionRes = R.string.app_logo
+    )
 }
 
 @Composable
