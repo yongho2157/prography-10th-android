@@ -45,6 +45,10 @@ gradlePlugin {
             id = "prography_10th_android.hilt"
             implementationClass = "HiltConventionPlugin"
         }
+        register("room") {
+            id = "prography_10th_android.room"
+            implementationClass = "AndroidRoomConventionPlugin"
+        }
     }
 }
 

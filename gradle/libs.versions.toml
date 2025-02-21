@@ -21,6 +21,7 @@ material = "1.12.0"
 coil = "3.0.0"
 androidxComposeNavigation = "2.8.0"
 hiltNavigationCompose = "1.2.0"
+room = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -51,6 +52,9 @@ okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor",
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room"}
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -73,5 +77,6 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 prography-android-application = { id = "prography_10th_android.android.application", version = "unspecified" }
 prography-android-library-compose  = { id = "prography_10th_android.android.library.compose", version = "unspecified" }
 prography-hilt  = { id = "prography_10th_android.hilt", version = "unspecified" }
+prography-room  = { id = "prography_10th_android.room", version = "unspecified" }
 prography-android-library = { id = "prography_10th_android.android.library", version = "unspecified" }
 
